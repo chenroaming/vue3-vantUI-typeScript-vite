@@ -4,7 +4,7 @@
  * @Author: chenroaming
  * @Date: 2022-08-25 09:33:08
  * @LastEditors: chenroaming
- * @LastEditTime: 2022-08-30 17:38:44
+ * @LastEditTime: 2022-08-31 17:26:38
  */
 import axios, { AxiosInstance } from 'axios'
 // import $router from '@/router'
@@ -46,6 +46,9 @@ class Request {
           // 使用.标点符号的方式来写，避免eslint报错is better written in dot notation  dot-notation
           // 此处的示例为给请求头添加一个authorization字段用以携带token
           config.headers.authorization = 'authorization123123123'
+          // 也可添加或者修改其他信息，此处以天天基金网IP地址为示例
+          config.headers.Host = 'api.fund.eastmoney.com'
+          config.headers.Referer = 'https://fundf10.eastmoney.com/'
         }
         return config
       },
@@ -147,7 +150,7 @@ class Request {
 // axios基础配置
 const baseConfig:AxiosRequestConfig = {
   // axios中请求配置有baseURL选项，表示请求URL公共部分，可根据实际项目自行调整
-  baseURL: import.meta.env.VUE_APP_BASE_API,
+  baseURL: import.meta.env.VITE_APP_BASE_API,
   // 超时，注意！axios的超时是中断请求，即canceled，非timeout
   // 具体参见http://www.axios-js.com/zh-cn/docs/#axios-create-config
   timeout: 50000
