@@ -1,4 +1,4 @@
-# vue3-vantUI-typeScript
+# vue3-vantUI-typeScript-vite
 
 ## Project setup
 ```
