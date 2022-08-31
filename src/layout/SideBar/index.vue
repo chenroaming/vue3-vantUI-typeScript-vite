@@ -47,7 +47,7 @@ export default defineComponent({
     const activeLabel = ref<string>('')
     const isShow = ref<boolean>(false)
     const show = computed<boolean>(() => getters['app/isCollapse'])
-    const avatar = '@/assets/GitHub-Mark-64px.png'
+    const avatar = 'src/assets/GitHub-Mark-64px.png'
     const active = ref<number>(0)
     const menuList = computed<MenuItem[]>(() => {
       return pagesRoutes.map((el:RouteRecordRaw):MenuItem => {
