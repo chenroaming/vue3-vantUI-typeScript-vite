@@ -3,7 +3,7 @@ import { State } from '@/types/store/app'
 const app = {
   namespaced: true,
   state: ():State => ({
-    configuration: configuration,
+    configuration,
     isCollapse: false, // 侧边菜单栏收缩开关
     pageTitle: '', // 导航栏标题
     keepAliveRoute: ['tabBarPage1', 'tabBarPage2', 'tabBarPage3', 'tabBarPage4'] // 保活页面

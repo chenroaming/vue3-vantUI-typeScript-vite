@@ -1,27 +1,22 @@
 import { createStore } from 'vuex'
 import { Maps } from '@/types/utils'
-import app from './modules/app'
+import { mapKeys } from 'lodash'
 interface Module {
   [k: string]: Maps
 }
-const modules:Module = {
-  app
-}
-console.log(modules)
-// 导入所有的vuex模块
-// const storeModels = import.meta.glob('./modules/*.ts')
-// console.log(storeModels)
-// const storeArr:string[] = []
-// for (const i in storeModels) {
-//   storeArr.push(i)
-// }
-// const modules = storeModels.keys().reduce((module:module, modulePath:string) => {
-//   // 解析文件名
-//   const moduleName:string = modulePath.replace(/^.\/(.*)\.ts/, '$1')
-//   const value = storeModels(modulePath)
-//   module[moduleName] = value.default
-//   return module
-// }, {})
+// 批量导入vuex模块
+// 该方法仅适用于vite搭建的工程项目
+// reference：https://cn.vitejs.dev/guide/features.html#glob-import
+const modules1 = import.meta.glob('./modules/*.ts', {
+  import: 'default',
+  eager: true
+})
+
+// 处理store模块化文件
+const modules = mapKeys(modules1, (_, key) => {
+  return key.split('/').pop()?.replace('.ts', '') as string
+}) as Module
+
 export default createStore({
   modules: {
     ...modules

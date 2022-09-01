@@ -4,7 +4,7 @@
  * @Author: chenroaming
  * @Date: 2022-08-25 09:33:08
  * @LastEditors: chenroaming
- * @LastEditTime: 2022-08-31 17:26:38
+ * @LastEditTime: 2022-09-01 09:49:56
  */
 import axios, { AxiosInstance } from 'axios'
 // import $router from '@/router'
@@ -47,8 +47,8 @@ class Request {
           // 此处的示例为给请求头添加一个authorization字段用以携带token
           config.headers.authorization = 'authorization123123123'
           // 也可添加或者修改其他信息，此处以天天基金网IP地址为示例
-          config.headers.Host = 'api.fund.eastmoney.com'
-          config.headers.Referer = 'https://fundf10.eastmoney.com/'
+          // config.headers.Host = 'api.fund.eastmoney.com'
+          // config.headers.Referer = 'https://fundf10.eastmoney.com/'
         }
         return config
       },
